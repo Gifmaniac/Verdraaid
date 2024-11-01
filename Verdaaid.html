@@ -1,0 +1,117 @@
+<html>
+<head>
+    <title>Verdraaid Croatia</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        video 
+        {
+            width: 100%;  
+            height: 600px;
+            object-fit: cover; /* Zorgt ervoor dat de video goed scaled. */
+        }
+        
+        #countdown {
+            position: absolute;
+            top:200px;
+            left: 50%;
+            color: white;
+            font-size: 62px;
+            background: rgba(0,0,0,0.5)
+        }
+
+        #festivalBegins {
+            position: absolute;
+            padding: 10px;
+            top:200px;
+            left: 15%;
+            color: white;
+            font-size: 62px;
+            background: rgba(0,0,0,0.5)
+        }
+
+        .topBar {
+        background-color: #A64C43;
+        padding: 15px;
+        width: 100%;
+        height: 60px;
+        display: flex; /* Flexbox voor een nette uitlijning */
+        padding: 0 20px;
+    }
+        .topBar a{
+        font-family: Summer Festival;
+        font-size: 40px;
+        font-weight: bold;
+        color: black;
+        padding: 10px;
+        display: flex;
+    }
+
+    .logo {
+        width: 5%;
+        height: auto;
+        margin-right: 20px; /* Ruimte tussen logo en navigatie */
+    }
+    
+    .image-container{               /*Zet de images langs elkaar*/
+        display: flex;
+        justify-content: space-evenly;
+    }
+    </style>
+</head>
+<body>
+
+    <p id="festivalBegins"></p>
+    <p id="countdown"></p>
+
+    <div class="topBar" id="header">
+        <img src="C:\Users\wvdb\Documents\Fontys\2024-2025\Media\Semester 1\Website\img\logo.jpg" alt="Logo" class="logo">
+            <a class="active" href="#home">Home</a>
+            <a href="C:\Users\wvdb\Documents\Fontys\2024-2025\Media\Semester 1\Website\Lineup.html">Line Up</a>
+            <a href="C:\Users\wvdb\Documents\Fontys\2024-2025\Media\Semester 1\Website\EilandInfo.html">Eiland info</a>
+            <a href="#contact">FaQ</a>
+            <a href="#tickets">Tickets</a>
+        </div>
+
+        
+
+
+    <script>
+        var countDownFestivalStart = new Date("June 13, 2025, 12:00").getTime(); // Haalt de tijd op tot het festival begint
+        var x = setInterval(function() { // Update iedere seconde
+            var nu = new Date().getTime(); // Huidige tijd
+            var start = countDownFestivalStart - nu; // Time until the festival
+            
+            // calculeert de tijd in dagen, uren, minuten en secondes
+            var days = Math.floor(start / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((start % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((start % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((start % (1000 * 60)) / 1000);
+            
+            // Haalt de P waardes op. 
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            // Stopt de countdown. 
+            if (start < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "Het festival is begonnen!";
+            }
+        }, 1000); // Updates iedere seconde.
+    </script>
+    
+    <script> 
+        document.getElementById("festivalBegins").innerHTML ="Het festival begint over";
+    </script>
+
+    <video autoplay loop muted>
+        <source src="C:\Users\wvdb\Documents\Fontys\2024-2025\Media\Semester 1\Website\mov\HoofdVoorCountdown.mp4" type="video/mp4">
+        </video>
+        <div class = image-container>
+            <a href="C:\Users\wvdb\Documents\Fontys\2024-2025\Media\Semester 1\Website\Lineup.html">
+        <img  src="C:\Users\wvdb\Documents\Fontys\2024-2025\Media\Semester 1\Website\img\VerdriaadLineup.png" alt="Lineup">
+            </a>
+        <img src="C:\Users\wvdb\Documents\Fontys\2024-2025\Media\Semester 1\Website\img\Novalja.jpg" alt="More info">
+    </div>
+</body>
+</html>
